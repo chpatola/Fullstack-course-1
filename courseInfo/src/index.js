@@ -25,33 +25,33 @@ const App = () => {
   return (
     <div>
       <Header course={course} />
-      <Content course={course} />
-      <Total course={course} />
+      <Content parts={course.parts} />
+      <Total parts={course.parts} />
     </div>
   )
 }
 
 const Header = ({course}) => <h1>{course.name}</h1>
 
-const Part = ({course}) => {
+const Part = ({parts}) => {
   return (
     <div>
-      <p>{course.name}, {course.exercises}</p>
+      <p>{parts.name}, {parts.exercises}</p>
     </div>
     
   )
 }
 
-const Content = ({course}) =>
+const Content = ({parts}) =>
   <div>
-  <Part course={course.parts[0]} />
-  <Part course={course.parts[1]} />
-  <Part course={course.parts[2]} />
+  <Part parts={parts[0]} />
+  <Part parts={parts[1]}/>
+  <Part parts={parts[2]} />
   </div>
 
-const Total = ({ course }) =>
+const Total = ({parts}) =>
 
-<p>Total number of excercises is {course.parts[0].exercises + course.parts[1].exercises + course.parts[2].exercises} </p>
+<p>Total number of excercises is {parts[0].exercises + parts[1].exercises + parts[2].exercises} </p>
 
 
 ReactDOM.render(<App />, document.getElementById('root'))
